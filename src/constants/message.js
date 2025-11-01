@@ -1,6 +1,3 @@
-import { DEFAULT_EXTENSIONS } from "@babel/core"
-import { PureComponent } from "react";
-
 export const COMMON_MESSAGE = Object.freeze({
     INPUT_PRURCHASE: "구입금액을 입력해 주세요.\n",
     INPUT_WINNING_NUM: "\n당첨 번호를 입력해 주세요.\n",
