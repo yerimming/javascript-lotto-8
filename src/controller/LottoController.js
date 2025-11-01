@@ -26,6 +26,12 @@ class LottoController {
         await inputWinningNums.inputValue(COMMON_MESSAGE.INPUT_WINNING_NUM);
         inputWinningNums.changeArray();
         const winningNums = inputWinningNums.getValue();
+
+        const inputBonusNum = new Input(
+            (bonusNum) => Validator.validateBonusNum(bonusNum, winningNums)
+        );
+        await inputBonusNum.inputValue(COMMON_MESSAGE.INPUT_BONUS_NUM);
+        const bonusNum = Number(inputBonusNum.getValue());
     }
 
     generateLottoNumbers() {

@@ -28,7 +28,7 @@ class Validator {
         }
     }
 
-    // 당첨 번호 인증
+    // 당첨 번호 검증
     static validateWinningNum(winningNum) {
         const numbers = winningNum.split(',').map(Number);
         this.checkWinningNumIsNumber(numbers);
@@ -60,6 +60,26 @@ class Validator {
         const isValid = new Set(value).size === value.length;
         if(!isValid) {
             throw new Error(ERROR_MESSAGE.DUPLICATION);
+        }
+    }
+
+    // 보너스 번호 검증
+    static validateBonusNum(bonusNum, winningNum) {
+        const num = Number(bonusNum);
+        this.checkIsNumber(num);
+        this.checkBonusNumRange(num);
+        this.checkBonusNotInWinningNum(num, winningNum);
+    }
+
+    static checkBonusNumRange(value) {
+        if (value < 1 || value > 45) {
+            throw new Error(ERROR_MESSAGE.NOT_RANGE);
+        }
+    }
+
+    static checkBonusNotInWinningNum(value, winningNum) {
+        if (winningNum.includes(value)) {
+            throw new Error(ERROR_MESSAGE.BONUS_IN_WINNING_NUM);
         }
     }
 }
