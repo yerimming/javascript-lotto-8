@@ -4,6 +4,7 @@ import Input from "../utils/Input.js";
 import Validator from "../utils/validate.js";
 import ConsoleView from "../view/ConsoleView.js";
 import Lotto from "../model/Lotto.js";
+import LottoResultCalculator from "../model/LottoResultCalculator.js";
 
 class LottoController {
     async run() {
@@ -32,6 +33,10 @@ class LottoController {
         );
         await inputBonusNum.inputValue(COMMON_MESSAGE.INPUT_BONUS_NUM);
         const bonusNum = Number(inputBonusNum.getValue());
+
+        const lottoResultCalculator = new LottoResultCalculator();
+        lottoResultCalculator.calculateResults(winningNums, bonusNum, lottos);
+        lottoResultCalculator.calculateRate(purchaseAmount);
     }
 
     generateLottoNumbers() {
