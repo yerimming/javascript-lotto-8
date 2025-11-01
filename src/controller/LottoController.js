@@ -21,6 +21,11 @@ class LottoController {
             lottos.push(lotto);
         }
         ConsoleView.printLottoNumbers(lottos);
+
+        const inputWinningNums = new Input(Validator.validateWinningNum.bind(Validator));
+        await inputWinningNums.inputValue(COMMON_MESSAGE.INPUT_WINNING_NUM);
+        inputWinningNums.changeArray();
+        const winningNums = inputWinningNums.getValue();
     }
 
     generateLottoNumbers() {

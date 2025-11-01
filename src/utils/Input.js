@@ -32,6 +32,10 @@ class Input {
     getLottoCount() {
         return this.value / LOTTO_CONFIG.LOTTO_PRICE;
     }
+
+    changeArray() {
+        this.value = this.value.split(',').map(Number);
+    }
 }
 
 export default Input;
