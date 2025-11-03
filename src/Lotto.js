@@ -11,6 +11,11 @@ class Lotto {
     if (numbers.length !== 6) {
       throw new Error(ERROR_MESSAGE.NOT_SIX_ELEMENTS);
     }
+
+    const uniqueNumbers = new Set(numbers);
+    if(uniqueNumbers.size !== numbers.length) {
+      throw new Error(ERROR_MESSAGE.DUPLICATION);
+    }
   }
 
   getNumbers() {
