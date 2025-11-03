@@ -5,9 +5,9 @@ class Validator {
     // 구입 금액 검증
     static validatePurchaseAmount(purchaseAmount) {
         const amount = Number(purchaseAmount);
-        this.checkDivisibleByThousand(amount);
         this.checkIsNumber(amount);
         this.checkIsPositive(amount);
+        this.checkDivisibleByThousand(amount);
     }
 
     static checkDivisibleByThousand(value) {
@@ -24,7 +24,7 @@ class Validator {
 
     static checkIsPositive(value) {
         if (value <= 0) {
-            throw new ERROR(ERROR_MESSAGE.NOT_POSITIVE);
+            throw new Error(ERROR_MESSAGE.NOT_POSITIVE);
         }
     }
 
