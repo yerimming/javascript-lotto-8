@@ -37,6 +37,12 @@ class LottoController {
         const lottoResultCalculator = new LottoResultCalculator();
         lottoResultCalculator.calculateResults(winningNums, bonusNum, lottos);
         lottoResultCalculator.calculateRate(purchaseAmount);
+
+        ConsoleView.printWinningStatsHeader();
+        const resultData = lottoResultCalculator.getResults();
+        ConsoleView.printLottoResult(resultData);
+        const returnOfRate = lottoResultCalculator.getReturnOfRate();
+        ConsoleView.printReturnOfRate(returnOfRate);
     }
 
     generateLottoNumbers() {
