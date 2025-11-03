@@ -1,5 +1,6 @@
 import { MissionUtils } from "@woowacourse/mission-utils";
 import { COMMON_MESSAGE } from "../constants/message.js";
+import { LOTTO_CONFIG } from "../constants/config.js";
 import Input from "../utils/Input.js";
 import Validator from "../utils/validate.js";
 import ConsoleView from "../view/ConsoleView.js";
@@ -46,7 +47,7 @@ class LottoController {
     }
 
     generateLottoNumbers() {
-        return MissionUtils.Random.pickUniqueNumbersInRange(1, 45, 6).sort((a, b) => a - b);
+        return MissionUtils.Random.pickUniqueNumbersInRange(LOTTO_CONFIG.MIN_NUMBER, LOTTO_CONFIG.MAX_NUMBER, LOTTO_CONFIG.NUMBER_COUNT).sort((a, b) => a - b);
     }
 }
 

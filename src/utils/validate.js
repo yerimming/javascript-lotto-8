@@ -44,14 +44,14 @@ class Validator {
     }
 
     static checkWinningNumRange(value) {
-        const isValid = value.every(num => num >= 1 && num <= 45);
+        const isValid = value.every(num => num >= LOTTO_CONFIG.MIN_NUMBER && num <= LOTTO_CONFIG.MAX_NUMBER);
         if (!isValid) {
             throw new Error(ERROR_MESSAGE.NOT_RANGE);
         }
     }
 
     static checkIsSixElements(value) {
-        if(value.length !== 6) {
+        if(value.length !== LOTTO_CONFIG.NUMBER_COUNT) {
             throw new Error(ERROR_MESSAGE.NOT_SIX_ELEMENTS);
         }
     }
@@ -72,7 +72,7 @@ class Validator {
     }
 
     static checkBonusNumRange(value) {
-        if (value < 1 || value > 45) {
+        if (value < LOTTO_CONFIG.MIN_NUMBER || value > LOTTO_CONFIG.MAX_NUMBER) {
             throw new Error(ERROR_MESSAGE.NOT_RANGE);
         }
     }
