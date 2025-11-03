@@ -3,7 +3,7 @@ import { COMMON_MESSAGE } from "../constants/message.js";
 import Input from "../utils/Input.js";
 import Validator from "../utils/validate.js";
 import ConsoleView from "../view/ConsoleView.js";
-import Lotto from "../model/Lotto.js";
+import Lotto from "../Lotto.js";
 import LottoResultCalculator from "../model/LottoResultCalculator.js";
 
 class LottoController {
